@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bikeshare.ncs.dao.extend.NcsRegionsExtendMapper">
+  <select id="selectAll" resultMap="RegionsTreeResultMap">
+    SELECT *
+    FROM ncs_region
+    WHERE level=1
+  </select>
+
+  <select id="selectByParentId" resultMap="RegionsTreeResultMap">
+    SELECT *
+    FROM ncs_region
+    WHERE parentId = #{id,jdbcType=BIGINT}
+  </select>
+
+  <resultMap id="RegionsTreeResultMap" type="com.bikeshare.ncs.bean.extend.NcsRegionsExtend" extends="com.bikeshare.ncs.dao.NcsRegionsMapper.BaseResultMap">
+    <collection property="children" column="id" select="selectByParentId"></collection>
+  </resultMap>
+
+</mapper>
