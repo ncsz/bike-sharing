@@ -5,4 +5,50 @@
     select distinct (year)
     from ncs_day
   </select>
+  <select id="selectYearsAndMonths" resultMap="monthResultMap">
+    select distinct (year)
+    from ncs_day
+  </select>
+  <select id="selectByYear" resultType="com.bikeshare.ncs.vm.Month">
+    select distinct (month) year
+    from ncs_day
+    where year=#{year ,jdbcType=CHAR}
+  </select>
+  <resultMap id="monthResultMap" type="com.bikeshare.ncs.vm.YearAndMonth">
+    <result property="year" column="year"></result>
+    <collection property="children" column="year" select="selectByYear">
+    </collection>
+  </resultMap>
+  <select id="selectDays" resultType="com.bikeshare.ncs.vm.Day">
+    select id,day year
+    from ncs_day
+    where year=#{year ,jdbcType=CHAR}
+    and month=#{month ,jdbcType=CHAR}
+  </select>
+<!--  <select id="selectYearsMonthsAndDays" resultMap="dayResultMap">-->
+<!--    select distinct (year)-->
+<!--    from ncs_day-->
+<!--  </select>-->
+<!--  <select id="selectByYearForDay" resultMap="forDayResultMap">-->
+<!--    select distinct (month) year-->
+<!--    from ncs_day-->
+<!--    where year=#{year,jdbcType=CHAR}-->
+<!--  </select>-->
+<!--  <select id="selectByMonth" resultType="com.bikeshare.ncs.vm.Day">-->
+<!--    select day year-->
+<!--    from ncs_day-->
+<!--    where month=#{year ,jdbcType=CHAR}-->
+<!--  </select>-->
+<!--  <resultMap id="dayResultMap" type="com.bikeshare.ncs.vm.YearMonthAndDay">-->
+<!--    <result property="year" column="year"></result>-->
+<!--    <collection property="children" column="year" select="selectByYearForDay">-->
+
+<!--    </collection>-->
+<!--  </resultMap>-->
+<!--  <resultMap id="forDayResultMap" type="com.bikeshare.ncs.vm.MonthAndDay">-->
+<!--    <result property="year" column="year"></result>-->
+<!--    <collection property="children" column="year" select="selectByMonth">-->
+
+<!--    </collection>-->
+<!--  </resultMap>-->
 </mapper>

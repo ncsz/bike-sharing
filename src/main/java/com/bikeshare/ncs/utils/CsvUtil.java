@@ -33,7 +33,7 @@ public class CsvUtil {
                 day.setHoliday(data[5]);
                 day.setSeason(Integer.parseInt(data[2]));
                 day.setWeather(data[8]);
-                dayUsageExtend.setDay(day);
+                dayUsageExtend.setDays(day);
                 dayUsageExtend.setTemperature(Double.parseDouble(data[9]));
                 dayUsageExtend.setUnregisterUsage(Long.parseLong(data[13]));
                 dayUsageExtend.setRegisterUsage(Long.parseLong(data[14]));
@@ -91,7 +91,7 @@ public class CsvUtil {
                 day.setHoliday(data[6]);
                 day.setSeason(Integer.parseInt(data[2]));
                 day.setWeek(data[9]);
-                hourUsageExtend.setDay(day);
+                hourUsageExtend.setDays(day);
                 hourUsageExtend.setHour(Integer.parseInt(data[5]));
                 hourUsageExtend.setTemperature(Double.parseDouble(data[10]));
                 hourUsageExtend.setUnregisterUsage(Long.parseLong(data[14]));

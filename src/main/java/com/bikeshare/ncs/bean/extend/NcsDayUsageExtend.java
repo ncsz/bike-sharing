@@ -4,9 +4,11 @@ import com.bikeshare.ncs.bean.NcsDay;
 import com.bikeshare.ncs.bean.NcsDayUsage;
 
 public class NcsDayUsageExtend extends NcsDayUsage {
-    private NcsDay day;
+    private NcsDay days;
     private String month;
     private Long id;
+    private String day;
+    private String holiday;
 
     @Override
     public Long getId() {
@@ -26,11 +28,27 @@ public class NcsDayUsageExtend extends NcsDayUsage {
         this.month = month;
     }
 
-    public NcsDay getDay() {
+    public NcsDay getDays() {
+        return days;
+    }
+
+    public void setDays(NcsDay days) {
+        this.days = days;
+    }
+
+    public String getDay() {
         return day;
     }
 
-    public void setDay(NcsDay day) {
+    public void setDay(String day) {
         this.day = day;
+    }
+
+    public String getHoliday() {
+        return holiday;
+    }
+
+    public void setHoliday(String holiday) {
+        this.holiday = holiday;
     }
 }

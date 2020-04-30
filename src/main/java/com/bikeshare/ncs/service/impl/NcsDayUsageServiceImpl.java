@@ -37,13 +37,13 @@ public class NcsDayUsageServiceImpl implements INcsDayUsageService {
         while(iterator.hasNext()){
             NcsDayUsageExtend dayUsageExtend=iterator.next();
             NcsDay day=new NcsDay();
-            day.setYear(dayUsageExtend.getDay().getYear());
-            day.setMonth(dayUsageExtend.getDay().getMonth());
-            day.setDay(dayUsageExtend.getDay().getDay());
-            day.setWeek(dayUsageExtend.getDay().getWeek());
-            day.setHoliday(dayUsageExtend.getDay().getHoliday());
-            day.setSeason(dayUsageExtend.getDay().getSeason());
-            day.setWeather(dayUsageExtend.getDay().getWeather());
+            day.setYear(dayUsageExtend.getDays().getYear());
+            day.setMonth(dayUsageExtend.getDays().getMonth());
+            day.setDay(dayUsageExtend.getDays().getDay());
+            day.setWeek(dayUsageExtend.getDays().getWeek());
+            day.setHoliday(dayUsageExtend.getDays().getHoliday());
+            day.setSeason(dayUsageExtend.getDays().getSeason());
+            day.setWeather(dayUsageExtend.getDays().getWeather());
             dayMapper.insert(day);
             long id=day.getId();
             NcsDayUsage dayUsage=new NcsDayUsage();
@@ -68,7 +68,7 @@ public class NcsDayUsageServiceImpl implements INcsDayUsageService {
                 hourUsage.setTotalUsage(hourUsageExtend.getTotalUsage());
                 hourUsageMapper.insert(hourUsage);
                 if(hourUsageExtend.getHour().equals(23)||
-                        (hourUsageExtend.getHour().equals(17)&&hourUsageExtend.getDay().getYear().equals("2011")&&hourUsageExtend.getDay().getMonth().equals("08")&&hourUsageExtend.getDay().getDay().equals("27"))){
+                        (hourUsageExtend.getHour().equals(17)&&hourUsageExtend.getDays().getYear().equals("2011")&&hourUsageExtend.getDays().getMonth().equals("08")&&hourUsageExtend.getDays().getDay().equals("27"))){
                     break;
                 }
             }
@@ -79,5 +79,49 @@ public class NcsDayUsageServiceImpl implements INcsDayUsageService {
     public List<NcsDayUsageExtend> selectMonthDataByYear(Long id,String year) {
         List<NcsDayUsageExtend> list=dayUsageExtendMapper.selectMonthDataByYear(id,year);
         return list;
+    }
+
+    @Override
+    public List<NcsDayUsageExtend> selectDayDataByYearAndMonth(Long id, String year, String month) {
+        return dayUsageExtendMapper.selectDayDataByYearAndMonth(id,year,month);
+    }
+
+    @Override
+    public NcsDayUsage selectWeekendData(Long id, String year) {
+        return dayUsageExtendMapper.selectWeekendData(id,year);
+    }
+
+    @Override
+    public NcsDayUsage selectWeekdayData(Long id, String year) {
+        return dayUsageExtendMapper.selectWeekdayData(id,year);
+    }
+
+    @Override
+    public NcsDayUsage selectHolidayData(Long id, String year) {
+        return dayUsageExtendMapper.selectHolidayData(id,year);
+    }
+
+    @Override
+    public Long selectWeekendCount(Long id, String year) {
+        return dayUsageExtendMapper.selectWeekendCount(id,year);
+    }
+
+    @Override
+    public Long selectWeekdayCount(Long id, String year) {
+        return dayUsageExtendMapper.selectWeekdayCount(id,year);
+    }
+
+    @Override
+    public Long selectHolidayCount(Long id, String year) {
+        return dayUsageExtendMapper.selectHolidayCount(id,year);
+    }
+
+    @Override
+    public List<NcsDayUsageExtend> selectHolidayDetailData(Long id, String year) {
+        return dayUsageExtendMapper.selectHolidayDetailData(id,year);
+    }
+    @Override
+    public NcsDayUsage selectDataBySeason(Long id,String year,Integer season){
+        return dayUsageExtendMapper.selectDataBySeason(id,year,season);
     }
 }

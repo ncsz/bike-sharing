@@ -7,6 +7,88 @@
         d.year=#{year,jdbcType=CHAR}
         GROUP BY d.month;
     </select>
+    <select id="selectDayDataByYearAndMonth" resultType="com.bikeshare.ncs.bean.extend.NcsDayUsageExtend">
+        select d.`day` day, SUM(du.register_usage) registerUsage,SUM(du.unregister_usage) unregisterUsage,SUM(du.total_usage) totalUsage
+        from ncs_day d,ncs_day_usage du,ncs_region r
+         WHERE d.id=du.day_id AND du.region_id=r.id AND
+         r.id=#{id,jdbcType=BIGINT} AND
+        d.year=#{year,jdbcType=CHAR} AND
+        d.month=#{month,jdbcType=CHAR}
+        GROUP BY d.`day`
+    </select>
+    <select id="selectWeekendData" resultType="com.bikeshare.ncs.bean.NcsDayUsage">
+        SELECT SUM(register_usage) registerUsage,SUM(unregister_usage) unregisterUsage,SUM(total_usage) totalUsage
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and week IN("0","6")
+    </select>
+    <select id="selectWeekdayData" resultType="com.bikeshare.ncs.bean.NcsDayUsage">
+        SELECT SUM(register_usage) registerUsage,SUM(unregister_usage) unregisterUsage,SUM(total_usage) totalUsage
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and week NOT IN("0","6")
+    </select>
+    <select id="selectHolidayData" resultType="com.bikeshare.ncs.bean.NcsDayUsage">
+        SELECT SUM(register_usage) registerUsage,SUM(unregister_usage) unregisterUsage,SUM(total_usage) totalUsage
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and holiday !="0"
+    </select>
+    <select id="selectWeekendCount" resultType="Long">
+        SELECT count(*)
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and week IN("0","6")
+    </select>
+    <select id="selectWeekdayCount" resultType="Long">
+        SELECT count(*)
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and week NOT IN("0","6")
+    </select>
+    <select id="selectHolidayCount" resultType="Long">
+        SELECT count(*)
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and holiday !="0"
+    </select>
+    <select id="selectHolidayDetailData" resultType="com.bikeshare.ncs.bean.extend.NcsDayUsageExtend">
+        SELECT d.`month`,d.`day`,d.holiday,du.register_usage registerUsage,du.unregister_usage unregisterUsage,du.total_usage totalUsage
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and holiday!="0"
+		ORDER BY d.id
+    </select>
+    <select id="selectDataBySeason" resultType="com.bikeshare.ncs.bean.NcsDayUsage">
+        SELECT SUM(du.register_usage) registerUsage,SUM(unregister_usage) unregisterUsage,SUM(total_usage) totalUsage
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+         and r.id=#{id,jdbcType=BIGINT}
+         and year=#{year,jdbcType=CHAR}
+         and season=#{season,jdbcType=INTEGER}
+    </select>
 <!--    <resultMap id="NcsDayUsageExtendResultMap" type="com.bikeshare.ncs.bean.extend.NcsDayUsageExtend">-->
 <!--        &lt;!&ndash;-->
 <!--          WARNING - @mbg.generated-->

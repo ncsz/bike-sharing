@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bikeshare.ncs.dao.extend.NcsHourUsageExtendMapper">
+  <select id="selectHourData" resultType="com.bikeshare.ncs.bean.NcsHourUsage">
+    select hour,register_usage registerUsage,unregister_usage unregisterUsage,total_usage totalUsage
+    from ncs_region r,ncs_day d,ncs_hour_usage hu
+    where hu.region_id=r.id
+    and hu.day_id=d.id
+    and r.id=#{region_id,jdbcType=BIGINT}
+    and d.id=#{day_id,jdbcType=BIGINT}
+  </select>
+</mapper>
