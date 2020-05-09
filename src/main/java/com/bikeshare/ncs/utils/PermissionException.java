@@ -1,11 +1,11 @@
 package com.bikeshare.ncs.utils;
 
 
-/**
- * @program: cms_jd1911
- * @description: 权限异常
- * @author: charles
- * @create: 2019-11-19 15:59
+ /**
+  * @name PermissionException
+  * @date 2020/4/30
+  * @author ncs
+  * @description 权限异常类
  **/
 public class PermissionException extends CustomerException {
     public PermissionException() {

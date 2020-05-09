@@ -1,7 +1,12 @@
 package com.bikeshare.ncs.utils;
 
 import java.util.Date;
-
+ /**
+  * @name MessageUtil
+  * @date 2020/4/30
+  * @author ncs
+  * @description 返回各种类型的消息，主要是设置状态码以及消息
+ **/
 public class MessageUtil {
     /**
      * 返回失败消息，一般用于增删改操作的结果返回

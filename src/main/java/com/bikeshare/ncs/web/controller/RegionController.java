@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+ /**
+  * @name RegionController
+  * @date 2020/4/30
+  * @author ncs
+  * @description 区域控制器
+ **/
 @Validated
 @RestController
 @RequestMapping("/region")

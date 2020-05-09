@@ -16,11 +16,11 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @program: cms_jd1911
- * @description: 角色实现类
- * @author: charles
- * @create: 2019-11-16 15:55
+ /**
+  * @name BaseRoleServiceImpl
+  * @date 2020/4/30
+  * @author ncs
+  * @description 角色实现类
  **/
 @Service
 public class BaseRoleServiceImpl implements IBaseRoleService {

@@ -1,10 +1,10 @@
 package com.bikeshare.ncs.utils;
 
-/**
- * @program: cms_jd1911
- * @description: 未授权异常
- * @author: charles
- * @create: 2019-11-19 18:40
+ /**
+  * @name UnAuthorizedException
+  * @date 2020/4/30
+  * @author ncs
+  * @description 未授权异常类
  **/
 
 public class UnAuthorizedException extends CustomerException {

@@ -1,5 +1,10 @@
 package com.bikeshare.ncs.utils;
-
+ /**
+  * @name Message
+  * @date 2020/4/30
+  * @author ncs
+  * @description 返回前端的统一格式
+ **/
 public class Message {
     private Integer status; //状态码 200 500
     private String message; //信息

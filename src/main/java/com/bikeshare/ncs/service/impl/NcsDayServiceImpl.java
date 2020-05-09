@@ -9,6 +9,12 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+ /**
+  * @name NcsDayServiceImpl
+  * @date 2020/4/30
+  * @author ncs
+  * @description 天实现类
+ **/
 @Service
 public class NcsDayServiceImpl implements INcsDayService {
     @Resource

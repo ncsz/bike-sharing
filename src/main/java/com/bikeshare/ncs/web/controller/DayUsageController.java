@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+ /**
+  * @name DayUsageController
+  * @date 2020/4/30
+  * @author ncs
+  * @description 共享单车每天使用量控制类
+ **/
 @Validated
 @RestController
 @RequestMapping("/dayUsage")
@@ -51,12 +56,9 @@ public class DayUsageController {
         list.add(ncsDayUsage3);
         return MessageUtil.success(list);
     }
-    @PostMapping("selectWeekCount")
-    public Message selectWeekCount(Long id,String year){
-        List<Long> list=new ArrayList<>();
-        list.add(dayUsageService.selectWeekendCount(id,year));
-        list.add(dayUsageService.selectWeekdayCount(id,year));
-        list.add(dayUsageService.selectHolidayCount(id,year));
+    @PostMapping("selectAverageDataByWeekAndHoliday")
+    public Message selectAverageDataByWeekAndHoliday(Long id,String year){
+        List<NcsDayUsage> list=dayUsageService.selectAverageDataByWeekAndHoliday(id,year);
         return MessageUtil.success(list);
     }
     @PostMapping("selectHolidayDetailData")
@@ -75,6 +77,19 @@ public class DayUsageController {
         list.add(dayUsage2);
         list.add(dayUsage3);
         list.add(dayUsage4);
+        return MessageUtil.success(list);
+    }
+    @PostMapping("selectByWeather")
+     public Message selectByWeather(Long id, String year){
+        return MessageUtil.success(dayUsageService.selectByWeather(id,year));
+    }
+    @PostMapping("selectAverageByWeather")
+     public Message selectAverageByWeather(Long id,String year){
+        return MessageUtil.success(dayUsageService.selectAverageByWeather(id,year));
+    }
+    @PostMapping("selectByTemperature")
+     public Message selectByTemperature(Long id,String year){
+        List<NcsDayUsageExtend> list=dayUsageService.selectByTemperature(id,year);
         return MessageUtil.success(list);
     }
 }

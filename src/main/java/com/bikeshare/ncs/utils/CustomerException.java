@@ -1,10 +1,10 @@
 package com.bikeshare.ncs.utils;
 
-/**
- * @program: cms_jd1911
- * @description: 自定义异常类
- * @author: charles
- * @create: 2019-11-12 11:52
+ /**
+  * @name CustomerException
+  * @date 2020/4/30
+  * @author ncs
+  * @description 自定义异常类
  **/
 
 public class CustomerException extends RuntimeException {

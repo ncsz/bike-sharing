@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.annotation.Resources;
 import java.util.List;
+ /**
+  * @name NcsRegionsServiceImpl
+  * @date 2020/4/30
+  * @author ncs
+  * @description 区域实现类
+ **/
 @Service
 public class NcsRegionsServiceImpl implements INcsRegionsService {
     @Resource

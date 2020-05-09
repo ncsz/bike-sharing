@@ -9,7 +9,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
+ /**
+  * @name CsvUtil
+  * @date 2020/4/30
+  * @author ncs
+  * @description 转换csv文件为List
+ **/
 public class CsvUtil {
     public static List<NcsDayUsageExtend>  ConvertDayCsvToList() {
         List<NcsDayUsageExtend> dayUsageExtends = new ArrayList<NcsDayUsageExtend>();//保存读取csv得到的数据
@@ -75,7 +80,6 @@ public class CsvUtil {
         List<Integer> test = new ArrayList<Integer>();
 
         BufferedReader reader = null;
-        //读写csv数据到list(dkinfos)集合中
         try {
             reader = new BufferedReader(new FileReader("D:/hour.csv"));//换成你的文件名
             String line = null;

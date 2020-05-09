@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
- * @program: cms_jd1911
- * @description: 权限控制实现类
- * @author: charles
- * @create: 2019-11-16 15:54
+ /**
+  * @name BasePrivilegeServiceImpl
+  * @date 2020/4/30
+  * @author ncs
+  * @description 权限控制实现类
  **/
 @Service
 public class BasePrivilegeServiceImpl implements IBasePrivilegeService {

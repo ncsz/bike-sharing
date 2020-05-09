@@ -18,7 +18,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+ /**
+  * @name UserController
+  * @date 2020/4/30
+  * @author ncs
+  * @description 用户控制器
+ **/
 @Validated
 @RestController
 @RequestMapping("/vue-element-admin/user")

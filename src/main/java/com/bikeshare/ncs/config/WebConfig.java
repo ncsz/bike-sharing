@@ -5,6 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+ /**
+  * @name WebConfig
+  * @date 2020/4/30
+  * @author ncs
+  * @description web配置信息，重写了拦截器规则
+ **/
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
     @Bean
@@ -19,8 +25,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns(
                         "/swagger-resources/**","/v2/**","/swagger-ui.html","/webjars/**",
-                        "/vue-element-admin/user/login","/vue-element-admin/user/logout","/privilege/findPrivilegeTree","/vue-element-admin/user/download","/baseUser/findMenuByUserId"
-                ,"dayUsage/putDataToDayUsage");
+                        "/vue-element-admin/user/login","/vue-element-admin/user/logout","/vue-element-admin/user/info"
+                        ,"/privilege/findPrivilegeTree","/vue-element-admin/user/download"
+                        ,"/baseUser/findMenuByUserId","dayUsage/putDataToDayUsage");
     }
     @Override
     public void addCorsMappings(CorsRegistry registry){

@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+ /**
+  * @name DayController
+  * @date 2020/4/30
+  * @author ncs
+  * @description 天控制类
+ **/
 @Validated
 @RestController
 @RequestMapping("/day")
@@ -36,4 +41,10 @@ public class DayController {
         List<YearMonthAndDay> list=dayService.selectYearsMonthsAndDays();
         return MessageUtil.success(list);
     }
-}
+     /**
+      * 1: 晴朗、飘着几朵云、局部多云
+      * 2: 薄雾加多云、薄雾加碎云、薄雾加几朵云、薄雾
+      * 3: 小雪、小雨加雷暴加散云、小雨加散云
+      * 4: 大雨加冰雹加雷暴加薄雾、下雪加雾
+      */
+ }

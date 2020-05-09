@@ -11,7 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+ /**
+  * @name HourUsageController
+  * @date 2020/4/30
+  * @author ncs
+  * @description 共享单车小时使用量控制器
+ **/
 @Validated
 @RestController
 @RequestMapping("/hourUsage")

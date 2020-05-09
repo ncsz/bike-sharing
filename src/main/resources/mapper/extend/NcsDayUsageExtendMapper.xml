@@ -89,6 +89,34 @@
          and year=#{year,jdbcType=CHAR}
          and season=#{season,jdbcType=INTEGER}
     </select>
+    <select id="selectByWeather" resultType="com.bikeshare.ncs.bean.NcsDayUsage">
+        SELECT SUM(du.register_usage) registerUsage,SUM(unregister_usage) unregisterUsage,SUM(total_usage) totalUsage
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+		and r.id=#{id,jdbcType=BIGINT}
+		and d.year=#{year,jdbcType=CHAR}
+		and d.weather=#{weather,jdbcType=VARCHAR}
+    </select>
+    <select id="selectWeatherCount" resultType="Long">
+        SELECT count(weather)
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+		and r.id=#{id,jdbcType=BIGINT}
+		and d.year=#{year,jdbcType=CHAR}
+		and d.weather=#{weather,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByTemperature" resultType="com.bikeshare.ncs.bean.extend.NcsDayUsageExtend">
+        SELECT SUM(du.register_usage) registerUsage,SUM(unregister_usage) unregisterUsage,SUM(total_usage) totalUsage
+        FROM ncs_region r,`ncs_day` d,ncs_day_usage du
+        WHERE du.region_id=r.id
+         and du.day_id=d.id
+		and r.id=#{id,jdbcType=BIGINT}
+		and d.year=#{year,jdbcType=CHAR}
+		and du.temperature*41 between #{tem1,jdbcType=DOUBLE} and #{tem2,jdbcType=DOUBLE}
+    </select>
+
 <!--    <resultMap id="NcsDayUsageExtendResultMap" type="com.bikeshare.ncs.bean.extend.NcsDayUsageExtend">-->
 <!--        &lt;!&ndash;-->
 <!--          WARNING - @mbg.generated-->

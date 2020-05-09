@@ -2,15 +2,29 @@ package com.bikeshare.ncs.bean.extend;
 
 import com.bikeshare.ncs.bean.NcsDay;
 import com.bikeshare.ncs.bean.NcsDayUsage;
-
+ /**
+  * @name NcsDayUsageExtend
+  * @date 2020/4/30
+  * @author ncs
+  * @description 天使用量bean拓展
+ **/
 public class NcsDayUsageExtend extends NcsDayUsage {
     private NcsDay days;
     private String month;
     private Long id;
     private String day;
     private String holiday;
+    private String tem;
 
-    @Override
+     public String getTem() {
+         return tem;
+     }
+
+     public void setTem(String tem) {
+         this.tem = tem;
+     }
+
+     @Override
     public Long getId() {
         return id;
     }

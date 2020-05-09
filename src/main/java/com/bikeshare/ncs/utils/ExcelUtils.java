@@ -25,17 +25,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * ClassName:ExcelUtils <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason: TODO ADD REASON. <br/>
- * Date: 2018年7月3日 上午8:57:12 <br/>
- * 
- * @author lichunyu
- * @version
- * @since JDK 1.6
- * @see
- */
+ /**
+  * @name ExcelUtils
+  * @date 2020/4/30
+  * @author ncs
+  * @description excel文件转换为list，创建excel
+ **/
 @SuppressWarnings("deprecation")
 public class ExcelUtils {
 	/**

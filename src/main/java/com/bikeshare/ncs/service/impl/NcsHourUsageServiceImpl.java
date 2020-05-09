@@ -7,6 +7,12 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+ /**
+  * @name NcsHourUsageServiceImpl
+  * @date 2020/4/30
+  * @author ncs
+  * @description 小时使用量实现类
+ **/
 @Service
 public class NcsHourUsageServiceImpl implements INcsHourUsageService {
     @Resource

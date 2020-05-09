@@ -4,11 +4,11 @@ import com.bikeshare.ncs.bean.BasePrivilege;
 
 import java.util.List;
 
-/**
- * @program: cms_jd1908
- * @description: 权限拓展
- * @author: charles
- * @create: 2019-11-20 15:26
+ /**
+  * @name BasePrivilegeExtend
+  * @date 2020/4/30
+  * @author ncs
+  * @description 权限拓展
  **/
 public class BasePrivilegeExtend extends BasePrivilege {
     private List<BasePrivilege> children;

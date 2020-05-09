@@ -11,11 +11,15 @@ import springfox.documentation.service.ApiKey;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
+ /**
+  * @name Swagger2
+  * @date 2020/4/30
+  * @author ncs
+  * @description swagger配置信息，用于后台测试
+ **/
 @Configuration
 @EnableSwagger2
 public class Swagger2 {
-
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
